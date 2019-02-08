@@ -6,11 +6,12 @@ import formFields from './formFields';
 import { withRouter } from 'react-router-dom';
 import * as actions from '../../actions';
 
+
 class BlogFormReview extends Component {
   renderFields() {
     const { formValues } = this.props;
 
-    return _.map(formFields, ({ name, label }) => {
+    return _.map( formFields, ({ name, label } ) => {
       return (
         <div key={name}>
           <label>{label}</label>
@@ -39,17 +40,17 @@ class BlogFormReview extends Component {
     );
   }
 
-  onSubmit(event) {
+  onSubmit( event ) {
     event.preventDefault();
 
     const { submitBlog, history, formValues } = this.props;
 
-    submitBlog(formValues, history);
+    submitBlog( formValues, history );
   }
 
   render() {
     return (
-      <form onSubmit={this.onSubmit.bind(this)}>
+      <form onSubmit={this.onSubmit.bind( this )}>
         <h5>Please confirm your entries</h5>
         {this.renderFields()}
 
@@ -59,8 +60,10 @@ class BlogFormReview extends Component {
   }
 }
 
-function mapStateToProps(state) {
+
+function mapStateToProps( state ) {
   return { formValues: state.form.blogForm.values };
 }
 
-export default connect(mapStateToProps, actions)(withRouter(BlogFormReview));
+
+export default connect( mapStateToProps, actions )( withRouter( BlogFormReview ));

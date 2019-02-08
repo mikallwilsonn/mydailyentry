@@ -8,9 +8,13 @@ const keys = require( './config/keys' );
 
 
 // Models
-require('./models/User');
-require('./models/Blog');
-require('./services/passport');
+require( './models/User' );
+require( './models/Blog' );
+
+
+// Services
+require( './services/passport' );
+require( './services/cache' );
 
 
 mongoose.Promise = global.Promise;

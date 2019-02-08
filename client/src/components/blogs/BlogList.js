@@ -10,7 +10,7 @@ class BlogList extends Component {
   }
 
   renderBlogs() {
-    return map(this.props.blogs, blog => {
+    return map( this.props.blogs, blog => {
       return (
         <div className="card darken-1 horizontal" key={blog._id}>
           <div className="card-stacked">
@@ -36,4 +36,4 @@ function mapStateToProps({ blogs }) {
   return { blogs };
 }
 
-export default connect(mapStateToProps, { fetchBlogs })(BlogList);
+export default connect( mapStateToProps, { fetchBlogs })( BlogList );
