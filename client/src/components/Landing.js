@@ -1,5 +1,6 @@
 import React from 'react';
 
+
 const Landing = () => {
   return (
     <div style={{ textAlign: 'center' }}>
@@ -10,5 +11,6 @@ const Landing = () => {
     </div>
   );
 };
+
 
 export default Landing;

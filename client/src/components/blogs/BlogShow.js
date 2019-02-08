@@ -2,13 +2,14 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchBlog } from '../../actions';
 
+
 class BlogShow extends Component {
   componentDidMount() {
-    this.props.fetchBlog(this.props.match.params._id);
+    this.props.fetchBlog( this.props.match.params._id );
   }
 
   render() {
-    if (!this.props.blog) {
+    if ( !this.props.blog ) {
       return '';
     }
 
@@ -23,8 +24,10 @@ class BlogShow extends Component {
   }
 }
 
-function mapStateToProps({ blogs }, ownProps) {
+
+function mapStateToProps( { blogs }, ownProps ) {
   return { blog: blogs[ownProps.match.params._id] };
 }
 
-export default connect(mapStateToProps, { fetchBlog })(BlogShow);
+
+export default connect( mapStateToProps, { fetchBlog })( BlogShow );

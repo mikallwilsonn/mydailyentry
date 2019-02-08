@@ -6,9 +6,10 @@ import { Link } from 'react-router-dom';
 import BlogField from './BlogField';
 import formFields from './formFields';
 
+
 class BlogForm extends Component {
   renderFields() {
-    return _.map(formFields, ({ label, name }) => {
+    return _.map( formFields, ({ label, name }) => {
       return (
         <Field
           key={name}
@@ -24,7 +25,7 @@ class BlogForm extends Component {
   render() {
     return (
       <div>
-        <form onSubmit={this.props.handleSubmit(this.props.onBlogSubmit)}>
+        <form onSubmit={this.props.handleSubmit( this.props.onBlogSubmit )}>
           {this.renderFields()}
           <Link to="/blogs" className="red btn-flat white-text">
             Cancel
@@ -39,11 +40,12 @@ class BlogForm extends Component {
   }
 }
 
-function validate(values) {
+
+function validate( values ) {
   const errors = {};
 
   _.each(formFields, ({ name }) => {
-    if (!values[name]) {
+    if ( !values[name] ) {
       errors[name] = 'You must provide a value';
     }
   });
@@ -51,8 +53,9 @@ function validate(values) {
   return errors;
 }
 
+
 export default reduxForm({
   validate,
   form: 'blogForm',
   destroyOnUnmount: false
-})(BlogForm);
+})( BlogForm );
