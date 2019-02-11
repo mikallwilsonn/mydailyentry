@@ -1,3 +1,5 @@
+jest.setTimeout( 30000 );
+
 // Dependencies
 const keys = require( '../config/keys' );
 const mongoose = require( 'mongoose' );
