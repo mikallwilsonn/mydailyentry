@@ -25,7 +25,7 @@ class BlogFormReview extends Component {
     const { onCancel } = this.props;
 
     return (
-      <div>
+      <div className="button-wrapper">
         <button
           className="yellow darken-3 white-text btn-flat"
           onClick={onCancel}

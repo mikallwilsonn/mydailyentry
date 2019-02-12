@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import * as actions from '../actions';
 
 import Header from './Header';
+import Footer from './Footer';
 import Landing from './Landing';
 import Dashboard from './Dashboard';
 import BlogNew from './blogs/BlogNew';
@@ -16,7 +17,7 @@ class App extends Component {
 
   render() {
     return (
-      <div className="container">
+      <div>
         <BrowserRouter>
           <div>
             <Header />
@@ -26,6 +27,7 @@ class App extends Component {
               <Route path="/blogs" component={Dashboard} />
               <Route path="/" component={Landing} />
             </Switch>
+            <Footer />
           </div>
         </BrowserRouter>
       </div>
