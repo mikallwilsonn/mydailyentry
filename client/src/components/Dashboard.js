@@ -5,10 +5,10 @@ import BlogList from './blogs/BlogList';
 
 const Dashboard = () => {
   return (
-    <div>
+    <div className="dashboard container">
       <BlogList />
       <div id="createNewBlog" className="fixed-action-btn">
-        <Link to="/blogs/new" className="btn-floating btn-large red">
+        <Link to="/blogs/new" className="waves-effect waves-light btn-floating btn-large pulse red">
           <i className="material-icons">add</i>
         </Link>
       </div>

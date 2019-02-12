@@ -1,8 +1,13 @@
+// ----
+// Dependencies
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchBlog } from '../../actions';
+import moment from 'moment';
 
 
+// ----
+// BlogShow class Component
 class BlogShow extends Component {
   componentDidMount() {
     this.props.fetchBlog( this.props.match.params._id );
@@ -13,12 +18,17 @@ class BlogShow extends Component {
       return '';
     }
 
-    const { title, content } = this.props.blog;
+    const { title, content, createdAt } = this.props.blog;
 
     return (
-      <div>
-        <h3>{title}</h3>
-        <p>{content}</p>
+      <div className="container">
+        <div className="post container s6">
+          <h3 style={{ textAlign: 'center'}}>{title}</h3>
+          <h6 style={{ textAlign: 'center'}}>Posted {moment(createdAt).fromNow()} on {moment(createdAt).format( "dddd, MMMM Do YYYY" )}</h6>
+          <hr className="post-divider"/>
+          <p style={{ fontSize: '1.25rem', 'textAlign': 'justify'}}>{content}</p>
+        </div>
+
       </div>
     );
   }

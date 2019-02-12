@@ -26,7 +26,7 @@ class BlogNew extends Component {
 
   render() {
     return (
-      <div>
+      <div id="blogNew">
         {this.renderContent()}
       </div>
     );
