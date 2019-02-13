@@ -12,6 +12,12 @@ const Landing = () => {
     <div id="lander">
 
       <div>
+
+        <img 
+          src='book.svg' 
+          alt="MyDailyEntry logo" 
+        />
+
         <h1 className="site-name">
           MyDailyEntry
         </h1>
