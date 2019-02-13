@@ -1,2 +1,3 @@
-# advanced-node
-Project for practicing and learning new, more advanced, Node concepts.
+# MyDailyEntry 
+  
+A Node/Express/React/MongoDB application that allows users to quickly write notes and journals.
