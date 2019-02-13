@@ -1,6 +1,6 @@
 // ----
 // Dependencies
-import React, { Component } from 'react';
+import React, { Component, createRef } from 'react';
 import { connect } from 'react-redux';
 import { fetchBlog } from '../../actions';
 import moment from 'moment';
@@ -9,8 +9,19 @@ import moment from 'moment';
 // ----
 // BlogShow class Component
 class BlogShow extends Component {
+
+  constructor( props ) {
+    super( props );
+    this.contentRef = createRef();
+  }
+
   componentDidMount() {
     this.props.fetchBlog( this.props.match.params._id );
+    
+  }
+
+  componentDidUpdate() {
+    this.contentRef.current.innerHTML = this.props.blog.content;
   }
 
   render() {
@@ -18,7 +29,7 @@ class BlogShow extends Component {
       return '';
     }
 
-    const { title, content, createdAt } = this.props.blog;
+    const { title, createdAt } = this.props.blog;
 
     return (
       <div className="container">
@@ -26,7 +37,7 @@ class BlogShow extends Component {
           <h3 style={{ textAlign: 'center'}}>{title}</h3>
           <h6 style={{ textAlign: 'center'}}>Posted {moment(createdAt).fromNow()} on {moment(createdAt).format( "dddd, MMMM Do YYYY" )}</h6>
           <hr className="post-divider"/>
-          <p style={{ fontSize: '1.25rem', 'textAlign': 'justify'}}>{content}</p>
+          <p ref={this.contentRef}></p>
         </div>
 
       </div>

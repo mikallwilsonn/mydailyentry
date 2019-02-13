@@ -18,7 +18,9 @@ class BlogList extends Component {
   }
 
   trimContent( content ) {
-    if ( content.length >= 250 ) {
+    if ( !content ) {
+      return '';
+    } else if ( content.length > 250 ) {
       return `${content.substring( 0, 250 )} ...`;
     } else {
       return content;
@@ -35,7 +37,7 @@ class BlogList extends Component {
                 <span className="card-title">{blog.title}</span>
               </Link>
               <small className="blog-date">Posted {moment(blog.createdAt).fromNow()} on {moment(blog.createdAt).format( "dddd, MMMM Do YYYY" )}</small>
-              <p className="blog-content">{this.trimContent( blog.content )}</p>
+              <p className="blog-content">{this.trimContent( blog.content ).replace(/<\/?[^>]+(>|$)/g, "")}</p>
             </div>
             <div className="card-action">
               <Link to={`/blogs/${blog._id}`} className="read-more blue-grey-text text-darken-1">

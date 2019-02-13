@@ -11,7 +11,8 @@ div .quill {
 }
 
 #loginWithGoogle strong,
-.read-more strong {
+.read-more strong,
+.new-entry strong {
     margin-left: 10px;
 }
 
@@ -93,6 +94,8 @@ p.blog-content {
 .post p {
     margin-top:50px;
     opacity:0.9;
+    font-size: 1.25rem !important;
+    text-align: justify !important;
 }
 
 .post hr.post-divider {
@@ -150,3 +153,13 @@ p.blog-content {
     50%{background-position:100% 50%}
     100%{background-position:0% 50%}
 }
+
+#hidden-content {
+    opacity:0 !important;
+    height:1px !important;
+    width: 1px !important;
+    overflow: hidden !important;
+    position:absolute !important;
+    transform: translateX(-1000px);
+}
+

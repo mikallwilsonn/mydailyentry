@@ -1,6 +1,6 @@
 // BlogFormReview shows users their form inputs for review
 import _ from 'lodash';
-import React, { Component } from 'react';
+import React, { Component, createRef } from 'react';
 import { connect } from 'react-redux';
 import formFields from './formFields';
 import { withRouter } from 'react-router-dom';
@@ -8,16 +8,37 @@ import * as actions from '../../actions';
 
 
 class BlogFormReview extends Component {
+
+  constructor( props ) {
+    super( props );
+    this.contentRef = createRef();
+  }
+
+  componentDidMount() {
+    this.contentRef.current.innerHTML = this.props.formValues['content'];
+  }
+
   renderFields() {
     const { formValues } = this.props;
 
     return _.map( formFields, ({ name, label } ) => {
-      return (
-        <div key={name}>
-          <label>{label}</label>
-          <div>{formValues[name]}</div>
-        </div>
-      );
+      if ( name === 'content' ) {
+        return (
+          <div key={name}>
+            <label>{label}</label>
+            <div ref={this.contentRef}></div>
+          </div>
+        );
+      } else {
+        return (
+          <div key={name}>
+            <label>{label}</label>
+            <div>{formValues[name]}</div>
+          </div>
+        );
+      }
+
+
     });
   }
 
@@ -50,7 +71,7 @@ class BlogFormReview extends Component {
 
   render() {
     return (
-      <form onSubmit={this.onSubmit.bind( this )}>
+      <form className="container" onSubmit={this.onSubmit.bind( this )}>
         <h5>Please confirm your entries</h5>
         {this.renderFields()}
 
