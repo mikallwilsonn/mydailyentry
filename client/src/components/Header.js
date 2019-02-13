@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon as Icon } from '@fortawesome/react-fontawesome';
 import { faGoogle } from '@fortawesome/free-brands-svg-icons';
+import { faPencilAlt } from '@fortawesome/free-solid-svg-icons';
 
 
 // ----
@@ -25,6 +26,12 @@ class Header extends Component {
         );
       default:
         return [
+          <li key="1" style={{ margin: '0 10px' }}>
+          <Link to="/blogs/new" className="btn btn-sm white new-entry blue-grey-text">
+            <Icon icon={faPencilAlt} />
+            <strong>New Entry</strong>
+          </Link>
+        </li>,
           <li key="3" style={{ margin: '0 10px' }}>
             <Link to="/blogs" className="blue-grey-text">
               <strong>My Blogs</strong>
