@@ -2,6 +2,8 @@
 // Depedencies
 import React, { Component } from 'react'; 
 import { connect } from 'react-redux';
+import { FontAwesomeIcon as Icon } from '@fortawesome/react-fontawesome';
+import { faBookOpen } from '@fortawesome/free-solid-svg-icons';
 
 
 // ----
@@ -14,6 +16,7 @@ class Footer extends Component {
                     <div className="container">
                         <div className="row">
                             <div className="col-12 blue-grey-text text-darken-4">
+                                <Icon icon={faBookOpen} size="5x" />
                                 <h5 className="site-name">MyDailyEntry</h5>
                                 <p className="grey-text text-darken-4">Quickly write private Notes & Journals!</p>
                             </div>
